@@ -40,11 +40,17 @@ if [ ! -f "$BANNER" ]; then
     wget -O "$BANNER" "$BANNER_URL"
 fi
 
-# 3. Add clear, lolcat banner, and PS1 only if not already present
-grep -qxF "clear" "$BASHRC" || echo "clear" >> "$BASHRC"
+# 3. Add interactive shell block if not already present
+if ! grep -q "cat ~/.cool_banner | lolcat" "$BASHRC"; then
+    echo "" >> "$BASHRC"
+    echo "# Only run if it's an interactive shell" >> "$BASHRC"
+    echo "if [[ \$- == *i* ]]; then" >> "$BASHRC"
+    echo "  clear" >> "$BASHRC"
+    echo "  cat ~/.cool_banner | lolcat" >> "$BASHRC"
+    echo "fi" >> "$BASHRC"
+fi
 
-grep -qxF "cat ~/.cool_banner | lolcat" "$BASHRC" || echo "cat ~/.cool_banner | lolcat" >> "$BASHRC"
-
+# 4. Add PS1 if not already present
 if ! grep -q "PS1='\\[\\e[1;35m\\]" "$BASHRC"; then
     echo "PS1='\\[\\e[1;35m\\]\\u@\\h \\[\\e[1;36m\\]\\w \\\$\\[\\e[0m\\] '" >> "$BASHRC"
 fi
