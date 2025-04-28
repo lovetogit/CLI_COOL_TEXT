@@ -41,7 +41,7 @@ if [ ! -f "$BANNER" ]; then
 fi
 
 # 3. Add interactive shell block if not already present
-if ! grep -q "cat ~/.cool_banner | lolcat" "$BASHRC"; then
+if ! grep -q "cat ~/cool_banner.txt | lolcat" "$BASHRC"; then
     echo "" >> "$BASHRC"
     echo "# Only run if it's an interactive shell" >> "$BASHRC"
     echo "if [[ \$- == *i* ]]; then" >> "$BASHRC"
