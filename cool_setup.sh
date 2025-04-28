@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASHRC=~/.bashrc
-BANNER=~/.cool_banner.txt
+BANNER=~/cool_banner.txt
 BANNER_URL="https://raw.githubusercontent.com/lovetogit/CLI_COOL_TEXT/refs/heads/main/cool_banner.txt"
 
 # 0. Ensure wget is installed
