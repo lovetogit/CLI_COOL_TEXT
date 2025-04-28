@@ -46,7 +46,7 @@ if ! grep -q "cat ~/cool_banner.txt | lolcat" "$BASHRC"; then
     echo "# Only run if it's an interactive shell" >> "$BASHRC"
     echo "if [[ \$- == *i* ]]; then" >> "$BASHRC"
     echo "  clear" >> "$BASHRC"
-    echo "  cat ~/.cool_banner | lolcat" >> "$BASHRC"
+    echo "  cat ~/cool_banner.txt | lolcat" >> "$BASHRC"
     echo "fi" >> "$BASHRC"
 fi
 
